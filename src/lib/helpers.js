@@ -38,3 +38,13 @@ export function el(name, ...children) {
 export function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+/**
+ * Skilar handhófskenndri dagsetningu á bilinu start til end
+ */
+export default function generateRandomDate() {
+  const start = new Date(1995, 6, 15);
+  const end = new Date(Date.now());
+  const date = new Date(start.getTime() + randomNumber(0, end.getTime() - start.getTime()));
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}
